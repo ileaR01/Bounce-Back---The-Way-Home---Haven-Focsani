@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://djfwh7snpcoql"]
+
+[ext_resource type="Script" uid="uid://bj4ysnsgydwf0" path="res://scripts/ui/main_menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" uid="uid://d034hfdgbuudj" path="res://assets/backgroundGame.jpg" id="2_sky"]
+[ext_resource type="Texture2D" uid="uid://1qld62blx3wa" path="res://assets/player/boy/default.svg" id="6_boy_tex"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_play"]
+bg_color = Color(0.08, 0.25, 0.4, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22, 0.75, 0.98, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.05, 0.35, 0.6, 0.35)
+shadow_size = 10
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0.06, 0.09, 0.16, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25, 0.38, 0.55, 0.8)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 6
+shadow_offset = Vector2(0, 2)
+
+[node name="MainMenu" type="Control" unique_id=994402634]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Sky" type="Sprite2D" parent="." unique_id=959556343]
+position = Vector2(640, 360)
+scale = Vector2(0.6667, 0.6667)
+texture = ExtResource("2_sky")
+
+[node name="VBoxTitle" type="VBoxContainer" parent="." unique_id=1667494018]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -450.0
+offset_top = 45.0
+offset_right = 450.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme_override_constants/separation = 6
+
+[node name="TitleLabel" type="Label" parent="VBoxTitle" unique_id=150181771]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.98, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.05, 0.35, 0.65, 0.75)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 54
+text = "BOUNCE BACK"
+horizontal_alignment = 1
+
+[node name="MenuButtons" type="VBoxContainer" parent="." unique_id=264399181]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -80.0
+offset_right = 160.0
+offset_bottom = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="PlayBtn" type="Button" parent="MenuButtons" unique_id=24662015]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_play")
+text = "▶  Începe Jocul"
+
+[node name="CharBtn" type="Button" parent="MenuButtons" unique_id=1665517671]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+text = "Alegere Personaj"
+
+
+[node name="ExitBtn" type="Button" parent="MenuButtons" unique_id=315275116]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+text = "Ieșire"
+
+[node name="CharPreview" type="Panel" parent="." unique_id=1501779280]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -230.0
+offset_top = -250.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_btn_normal")
+
+[node name="TextureRect" type="TextureRect" parent="CharPreview" unique_id=1184824400]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -75.0
+offset_right = 50.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 60)
+texture = ExtResource("6_boy_tex")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CharPreview" unique_id=855822925]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -32.0
+offset_right = 80.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Caracter ales: Băiat"
+horizontal_alignment = 1

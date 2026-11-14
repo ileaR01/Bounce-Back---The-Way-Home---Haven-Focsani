@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://npc_flower_scene"]
+
+[ext_resource type="Script" path="res://scripts/npcs/npc_base.gd" id="1_npc"]
+[ext_resource type="Texture2D" path="res://assets/exported/npc_flower.svg" id="2_fl_tex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f"]
+radius = 45.0
+
+[node name="NPCFlower" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_npc")
+npc_name = "Floarea Enigmelor"
+avatar_key = "flower"
+auto_trigger = false
+dialogue_lines = [
+	"Labirintul se hrănește cu graba celor neatenți. Porțile de piatră ascultă doar de altarele runice ascunse.",
+	"Unele ziduri nu sunt ceea ce par. Dacă observi o adiere slabă de particule, încearcă să pășești dincolo de stâncă.",
+	"Găsește comutatoarele ascunse pentru a elibera trecerea către adâncuri."
+]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -30)
+texture = ExtResource("2_fl_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -30)
+shape = SubResource("CircleShape2D_f")

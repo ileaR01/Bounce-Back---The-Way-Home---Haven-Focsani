@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://collectible_seed_scene"]
+
+[ext_resource type="Script" path="res://scripts/entities/collectible_seed.gd" id="1_seed"]
+[ext_resource type="Texture2D" path="res://assets/exported/point.svg" id="2_seed_tex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s"]
+radius = 18.0
+
+[node name="CollectibleSeed" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_seed")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_seed_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s")

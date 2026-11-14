@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://npc_rabbit_scene"]
+
+[ext_resource type="Script" path="res://scripts/npcs/npc_base.gd" id="1_npc"]
+[ext_resource type="Texture2D" path="res://assets/exported/npc_rabbit.svg" id="2_rb_tex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r"]
+radius = 45.0
+
+[node name="NPCRabbit" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_npc")
+npc_name = "Umbra Vântului"
+avatar_key = "rabbit"
+auto_trigger = false
+dialogue_lines = [
+	"Curenții de aer din acest canion sunt nemiloși. Unii te poartă spre înălțimi, dar alții te împing direct în țepii de obsidian.",
+	"Urmărește direcția particulelor luminoase. Curentul sigur te va purta peste prăpastie dacă sari cu hotărâre.",
+	"Dacă sari în inima vântului, vei primi o forță de propulsie sporită!"
+]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -25)
+texture = ExtResource("2_rb_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
+shape = SubResource("CircleShape2D_r")

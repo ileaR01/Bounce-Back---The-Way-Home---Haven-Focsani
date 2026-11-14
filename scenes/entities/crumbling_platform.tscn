@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://crumbling_platform_scene"]
+
+[ext_resource type="Script" path="res://scripts/entities/crumbling_platform.gd" id="1_cr"]
+[ext_resource type="Texture2D" path="res://assets/exported/platform2.svg" id="2_cr_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr"]
+size = Vector2(178, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trig"]
+size = Vector2(170, 10)
+
+[node name="CrumblingPlatform" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 2
+script = ExtResource("1_cr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 20)
+texture = ExtResource("2_cr_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_cr")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="TriggerShape" type="CollisionShape2D" parent="TriggerArea"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_trig")

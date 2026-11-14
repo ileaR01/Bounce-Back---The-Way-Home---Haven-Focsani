@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://player_scene_01"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_player"]
+[ext_resource type="Texture2D" path="res://assets/player/boy/default.svg" id="2_boy_tex"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p"]
+radius = 20.0
+height = 64.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("CapsuleShape2D_p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -34)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_boy_tex")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -40)
+zoom = Vector2(1.15, 1.15)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="RecoverLabel" type="Label" parent="."]
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = -55.0
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+text = "TE-AI RIDICAT!"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://shadow_guardian_enemy_scene"]
+
+[ext_resource type="Script" path="res://scripts/enemies/shadow_guardian_enemy.gd" id="1_sguard"]
+[ext_resource type="Texture2D" path="res://assets/elements/enemy_shadow_guardian.svg" id="2_tex"]
+
+[node name="ShadowGuardianEnemy" type="CharacterBody2D"]
+script = ExtResource("1_sguard")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -30)
+texture = ExtResource("2_tex")

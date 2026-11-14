@@ -1,0 +1,219 @@
+[gd_scene load_steps=8 format=3 uid="uid://hud_scene_01"]
+
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_hud"]
+[ext_resource type="Texture2D" path="res://assets/exported/heartFull.svg" id="2_heart_tex"]
+[ext_resource type="Texture2D" path="res://assets/exported/point.svg" id="3_seed_tex"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar"]
+bg_color = Color(0.1, 0.12, 0.18, 0.65)
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.3, 0.45, 0.75, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnl"]
+bg_color = Color(0.15, 0.18, 0.26, 0.95)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.7, 0.8, 1, 0.8)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbtn"]
+bg_color = Color(0.35, 0.4, 0.6, 0.85)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="HUD" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_hud")
+
+[node name="TopBar" type="Panel" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_right = -20.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bar")
+
+[node name="HeartsContainer" type="HBoxContainer" parent="TopBar"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 12.0
+offset_right = 160.0
+offset_bottom = 48.0
+theme_override_constants/separation = 8
+
+[node name="Heart1" type="TextureRect" parent="TopBar/HeartsContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture = ExtResource("2_heart_tex")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="TopBar/HeartsContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture = ExtResource("2_heart_tex")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="TopBar/HeartsContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture = ExtResource("2_heart_tex")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SeedsContainer" type="HBoxContainer" parent="TopBar"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 12.0
+offset_right = 320.0
+offset_bottom = 48.0
+theme_override_constants/separation = 6
+
+[node name="SeedIcon" type="TextureRect" parent="TopBar/SeedsContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture = ExtResource("3_seed_tex")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SeedsLabel" type="Label" parent="TopBar/SeedsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.98, 0.9, 0.4, 1)
+text = "0"
+vertical_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="TopBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -18.0
+offset_right = 200.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+text = "Nivelul 1 – Sanctuarul Umbrelor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseButton" type="Button" parent="TopBar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -18.0
+offset_right = -20.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_font_sizes/font_size = 15
+text = "Pauză"
+
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.55)
+
+[node name="Panel" type="Panel" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -180.0
+offset_right = 180.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pnl")
+
+[node name="Title" type="Label" parent="PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 25.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+text = "JOCUL ESTE ÎN PAUZĂ"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -80.0
+offset_right = 120.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="ResumeBtn" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mbtn")
+theme_override_font_sizes/font_size = 16
+text = "Continuă"
+
+[node name="RestartBtn" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mbtn")
+theme_override_font_sizes/font_size = 16
+text = "Reîncepe Nivelul"
+
+[node name="MenuBtn" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mbtn")
+theme_override_font_sizes/font_size = 16
+text = "Meniu Principal"

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://level_02_abyss_forest_scn"]
+
+[ext_resource type="Script" path="res://scripts/levels/level_02_abyss_forest.gd" id="1_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/environment/parallax_garden.tscn" id="2_bg"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="3_hud"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue/dialogue_box.tscn" id="4_dbox"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="5_player"]
+
+[node name="Level02AbyssForest" type="Node2D"]
+script = ExtResource("1_lvl")
+level_number = 2
+level_width = 9800.0
+fall_death_y = 1080.0
+
+[node name="ParallaxGarden" parent="." instance=ExtResource("2_bg")]
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="DialogueBox" parent="." instance=ExtResource("4_dbox")]
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(120, 520)
+
+[node name="Player" parent="." instance=ExtResource("5_player")]
+position = Vector2(120, 520)

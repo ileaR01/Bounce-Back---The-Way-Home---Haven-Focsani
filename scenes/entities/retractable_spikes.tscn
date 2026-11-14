@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://retractable_spikes_scene"]
+
+[ext_resource type="Script" path="res://scripts/entities/retractable_spikes.gd" id="1_rspikes"]
+[ext_resource type="Texture2D" path="res://assets/elements/retractable_spikes_extended.svg" id="2_tex"]
+
+[node name="RetractableSpikes" type="Area2D"]
+script = ExtResource("1_rspikes")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -14)
+texture = ExtResource("2_tex")

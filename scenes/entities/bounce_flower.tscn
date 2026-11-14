@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bounce_flower_scene"]
+
+[ext_resource type="Script" path="res://scripts/entities/bounce_flower.gd" id="1_flower"]
+[ext_resource type="Texture2D" path="res://assets/exported/bounce_flower.svg" id="2_flower_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f"]
+size = Vector2(50.0, 36.0)
+
+[node name="BounceFlower" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_flower")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -39)
+texture = ExtResource("2_flower_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -39)
+shape = SubResource("RectangleShape2D_f")

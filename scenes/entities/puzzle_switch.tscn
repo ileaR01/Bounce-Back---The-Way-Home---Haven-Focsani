@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://puzzle_switch_scene"]
+
+[ext_resource type="Script" path="res://scripts/entities/puzzle_switch.gd" id="1_sw"]
+[ext_resource type="Texture2D" path="res://assets/exported/puzzle_switch_off.svg" id="2_sw_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sw"]
+size = Vector2(40, 50)
+
+[node name="PuzzleSwitch" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_sw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sw_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sw")

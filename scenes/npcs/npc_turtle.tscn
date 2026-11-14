@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://npc_turtle_scene"]
+
+[ext_resource type="Script" path="res://scripts/npcs/npc_base.gd" id="1_npc"]
+[ext_resource type="Texture2D" path="res://assets/exported/npc_turtle.svg" id="2_tt_tex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t"]
+radius = 45.0
+
+[node name="NPCTurtle" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_npc")
+npc_name = "Păzitorul Ancestral"
+avatar_key = "turtle"
+auto_trigger = false
+dialogue_lines = [
+	"Ai traversat iluziile și capcanele sanctuarului. Dar poarta finală cere perspicacitate, nu doar reflexe.",
+	"Nu forța calea când este blocată. Caută secvența runelor gravate pe pilonii de piatră.",
+	"Adevărata reziliență nu este doar să te ridici după cădere, ci să înțelegi de ce ai căzut."
+]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -20)
+texture = ExtResource("2_tt_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -20)
+shape = SubResource("CircleShape2D_t")

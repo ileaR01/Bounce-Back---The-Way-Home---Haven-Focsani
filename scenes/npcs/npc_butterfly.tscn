@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://npc_butterfly_scene"]
+
+[ext_resource type="Script" path="res://scripts/npcs/npc_base.gd" id="1_npc"]
+[ext_resource type="Texture2D" path="res://assets/exported/flutureNpc.svg" id="2_bf_tex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b"]
+radius = 45.0
+
+[node name="NPCButterfly" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_npc")
+npc_name = "Ghidul Astral"
+avatar_key = "butterfly"
+auto_trigger = true
+dialogue_lines = [
+	"Ochii pot fi ușor înșelați în acest sanctuar uitat. Calea cea mai evidentă nu este întotdeauna cea adevărată.",
+	"Privește cu atenție fisurile din piatră și semnele lăsate pe ziduri. Un pas neatent pe o lespede crăpată te va trage în abis.",
+	"Folosește forța ricoșeului (Bounce Back) nu doar pentru a supraviețui, ci pentru a activa mecanismele ascunse la înălțime."
+]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -20)
+texture = ExtResource("2_bf_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -20)
+shape = SubResource("CircleShape2D_b")

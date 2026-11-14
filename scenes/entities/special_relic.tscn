@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://special_relic_scene"]
+
+[ext_resource type="Script" path="res://scripts/entities/special_relic.gd" id="1_relic"]
+[ext_resource type="Texture2D" path="res://assets/elements/relic_bounce_crystal.svg" id="2_tex"]
+
+[node name="SpecialRelic" type="Area2D"]
+script = ExtResource("1_relic")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")

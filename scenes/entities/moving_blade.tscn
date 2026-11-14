@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://moving_blade_scene"]
+
+[ext_resource type="Script" path="res://scripts/entities/moving_blade.gd" id="1_blade"]
+[ext_resource type="Texture2D" path="res://assets/elements/moving_blade.svg" id="2_tex"]
+
+[node name="MovingBlade" type="Area2D"]
+script = ExtResource("1_blade")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")

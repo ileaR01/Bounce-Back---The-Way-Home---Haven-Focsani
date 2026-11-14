@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://home_cottage_scene"]
+
+[ext_resource type="Script" path="res://scripts/entities/home_cottage.gd" id="1_cottage"]
+[ext_resource type="Texture2D" path="res://assets/exported/house.svg" id="2_cottage_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cot"]
+size = Vector2(80.0, 100.0)
+
+[node name="HomeCottage" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_cottage")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -95)
+texture = ExtResource("2_cottage_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_cot")

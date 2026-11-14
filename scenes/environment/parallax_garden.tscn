@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=3 uid="uid://parallax_garden_scene"]
+
+[ext_resource type="Texture2D" uid="uid://d034hfdgbuudj" path="res://assets/backgroundGame.jpg" id="1_sky"]
+[ext_resource type="Script" path="res://scripts/environment/themed_parallax.gd" id="5_tpar"]
+
+[node name="ParallaxGarden" type="ParallaxBackground"]
+script = ExtResource("5_tpar")
+
+[node name="SkyLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SkyLayer"]
+position = Vector2(640, 360)
+scale = Vector2(0.6667, 0.6667)
+texture = ExtResource("1_sky")
